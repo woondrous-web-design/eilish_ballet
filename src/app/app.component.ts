@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore/';
+import { Meta } from '@angular/platform-browser';
 
 function emailOrPhoneRequired(control: AbstractControl): { [key: string]: boolean } | null {
   const email = control.get('email')?.value;
@@ -37,11 +38,17 @@ export class AppComponent {
   constructor(
     private firestore: AngularFirestore,
     private viewportScroller: ViewportScroller,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private meta: Meta) { }
 
   sections = ['header', 'about', 'classes', 'testimonials', 'contact'];
 
   ngOnInit(): void {
+    this.meta.addTags([ 
+      { name: 'description', content: 'Professional and fun ballet school for youth and kids by Eilish Heneghan in Shantalla Galway.' }, 
+      { name: 'keywords', content: 'galway, ballet, class, ballet acedemy, ballet school, children, kid, galway, dance, community centre, shantalla, ireland, st. joseph\'s community centre' } 
+  ]);
+    
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.email]],
