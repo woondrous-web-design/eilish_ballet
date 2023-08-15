@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "eilishballet"
+  },
+  "targets": {
+    "eilishballet": {
+      "hosting": {
+        "swandancegalway": [
+          "eilishballet"
+        ]
+      }
+    }
+  }
+}
