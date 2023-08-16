@@ -1,5 +1,5 @@
-import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { ViewportScroller, isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore/';
 import { Meta } from '@angular/platform-browser';
@@ -36,6 +36,7 @@ export class AppComponent {
   public submitted = false;
   public submission_error = false;
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private firestore: AngularFirestore,
     private viewportScroller: ViewportScroller,
     private formBuilder: UntypedFormBuilder,
@@ -44,11 +45,11 @@ export class AppComponent {
   sections = ['header', 'about', 'classes', 'testimonials', 'contact'];
 
   ngOnInit(): void {
-    this.meta.addTags([ 
-      { name: 'description', content: 'Professional and fun ballet school for youth and kids by Eilish Heneghan in Shantalla Galway.' }, 
-      { name: 'keywords', content: 'galway, ballet, class, ballet acedemy, ballet school, children, kid, galway, dance, community centre, shantalla, ireland, st. joseph\'s community centre' } 
-  ]);
-    
+    this.meta.addTags([
+      { name: 'description', content:"Discover an enchanting ballet journey for children and youth in Shantalla, Galway. Join Eilish Heneghan's professional and engaging ballet classes for a delightful dance experience." },
+      { name: 'keywords', content: 'galway, ballet, class, ballet acedemy, ballet school, children, kid, galway, dance, community centre, shantalla, ireland, st. joseph\'s community centre, eilish, heneghan'}
+    ]);
+
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.email]],
@@ -59,7 +60,9 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: any) {
-    this.updateActiveSection();
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateActiveSection();
+    }
   }
 
   submitForm(): void {

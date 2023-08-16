@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { APP_ID, NgModule } from '@angular/core';
+import { BrowserModule, TransferState, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,10 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ClassComponent } from './class/class.component';
-import { MapComponent } from './map/map.component';
 import { ReactiveFormsModule } from '@angular/forms'; // Import this line
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { MapComponent } from './map/map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,7 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
     }),
     ReactiveFormsModule
   ],
-  providers: [AngularFirestore],
+  providers: [provideClientHydration(), AngularFirestore, { provide: APP_ID, useValue: 'eilishballet' }, TransferState],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

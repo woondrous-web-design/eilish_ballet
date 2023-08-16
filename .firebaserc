@@ -5,7 +5,7 @@
   "targets": {
     "eilishballet": {
       "hosting": {
-        "swandancegalway": [
+        "eilishballet": [
           "eilishballet"
         ]
       }

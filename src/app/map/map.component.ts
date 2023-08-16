@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 
 declare var google: any;
 
@@ -9,10 +10,12 @@ declare var google: any;
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
-    this.initMap();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initMap();
+    }
   }
 
   initMap(): void {

@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/eilishballet/browser",
+            "outputPath": "dist/functions/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -82,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "swandancegalway:build:production"
+              "browserTarget": "eilishballet:build:production"
             },
             "development": {
-              "browserTarget": "swandancegalway:build:development"
+              "browserTarget": "eilishballet:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "swandancegalway:build"
+            "browserTarget": "eilishballet:build"
           }
         },
         "test": {
@@ -124,15 +124,16 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "browserTarget": "swandancegalway:build:production"
+            "browserTarget": "eilishballet:build:production"
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/eilishballet/server",
+            "outputPath": "dist/functions/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
+            "sourceMap":true,
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
