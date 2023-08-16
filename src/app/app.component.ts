@@ -1,6 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore/';
 import { Meta } from '@angular/platform-browser';
 
@@ -25,7 +25,7 @@ export class AppComponent {
   public isExpanded = false;
   activeSection: string | null = 'header';
 
-  contactForm: FormGroup = this.formBuilder.group({
+  contactForm: UntypedFormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     email: ['', [Validators.email]],
     phone: ['', [Validators.pattern('[- +()0-9]{6,}')]],
@@ -38,7 +38,7 @@ export class AppComponent {
   constructor(
     private firestore: AngularFirestore,
     private viewportScroller: ViewportScroller,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private meta: Meta) { }
 
   sections = ['header', 'about', 'classes', 'testimonials', 'contact'];
