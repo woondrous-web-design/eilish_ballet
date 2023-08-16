@@ -1,6 +1,9 @@
-# swandancegalway
+# eilishballet
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+Deploy Hosting: firebase deploy --only hosting (Root)
+Deploy functions: cd functions > firebase deploy --only functions 
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
 ## Development server
 
