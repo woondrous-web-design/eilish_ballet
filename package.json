@@ -1,5 +1,5 @@
 {
-  "name": "eilish-ballet",
+  "name": "eilishballet",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^13.3.11",
     "@angular/animations": "13.4.0",
     "@angular/common": "^13.4.0",
     "@angular/compiler": "13.1.0",
