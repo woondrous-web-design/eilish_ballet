@@ -1,7 +1,17 @@
 # eilishballet
 
+`https://console.firebase.google.com/u/4/project/eilishballet/overview`
+
+# Firebase Hosting Setup: Steps
+
+Install firebase tool `npm install -g firebase-tools`.
+Initilize Firebase: `firebase init`.
+Login to Firebase using CLI: `firebase login`.
+
+`npm install --force`
+
 Deploy Hosting: ng build, then 'firebase deploy --only hosting' (Root)
-Deploy functions: build:ssr > cd function > firebase deploy --only functions 
+Deploy functions: build:ssr > cd function > firebase deploy --only functions
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
