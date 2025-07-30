@@ -10,7 +10,8 @@ Login to Firebase using CLI: `firebase login`.
 
 `npm install --force`
 
-Deploy Hosting: ng build, then 'firebase deploy --only hosting' (Root)
+Deploy Hosting: ng build, then 'firebase deploy --only hosting' (Root) 
+(if there is an error, try: 'firebase login --reauth')
 Deploy functions: build:ssr > cd function > firebase deploy --only functions
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
