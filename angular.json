@@ -133,7 +133,7 @@
             "outputPath": "dist/functions/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            "sourceMap":true,
+            "sourceMap": true,
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
